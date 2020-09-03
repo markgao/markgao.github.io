@@ -5,9 +5,6 @@
   <meta name="description" content="Xiang Gao">
   <meta name="keywords" content="高翔,Xiang Gao">
   <title>XG</title>
-  <script>
-    !function(t){function e(t,e){return~~(Math.random()*(e-t+1)+t)}function n(){return String.fromCharCode(function(){return arguments[e(0,arguments.length-1)]}(e(12353,12543),e(8192,8303),e(32,63)))}function o(t,e){let n=Date.now();requestAnimationFrame(function o(){Date.now()-n>=e&&(t(),n=Date.now()),requestAnimationFrame(o)})}class s{constructor(){this.element=t.createElement("span"),this.mutate()}mutate(){this.element.textContent=n()}}class i{constructor(t=[],e){this.list=t,this.options=Object.assign({size:10,offset:0},e),this.body=[],this.move()}traverse(t){this.body.forEach((e,n)=>{let o=n==this.body.length-1;e&&t(e,n,o)})}move(){this.body=[];let{offset:t,size:e}=this.options;for(let n=0;n<e;++n){let o=this.list[t+n-e+1];this.body.push(o)}this.options.offset=(t+1)%(this.list.length+e-1)}}class r{constructor({target:e,row:n}){this.element=t.createElement("p"),this.build(n),e&&e.appendChild(this.element),this.drop()}build(n=20){let r=t.createDocumentFragment(),l=[];for(let t=0;t<n;++t){let t=new s;r.appendChild(t.element),l.push(t),Math.random()<.5&&o(()=>t.mutate(),e(1e3,5e3))}this.trail=new i(l,{size:e(10,30),offset:e(0,100)}),this.element.appendChild(r)}drop(){let t=this.trail,n=t.body.length;o(()=>{t.move(),t.traverse((t,e,o)=>{t.element.style=`\n          color: hsl(136, 100%, ${85/n*(e+1)}%)\n        `,o&&(t.mutate(),t.element.style="\n            color: hsl(136, 100%, 85%);\n            text-shadow:\n              0 0 .5em #fff,\n              0 0 .5em currentColor;\n          ")})},e(10,100))}}const l=t.querySelector("main");for(let t=0;t<50;++t)new r({target:l,row:50})}(document);
-  </script>
   <style type="text/css">
     html, body { 
       height: 100%; 
@@ -39,5 +36,8 @@
 </head>
 <body>
   <main></main>
+  <script>
+    !function(t){function e(t,e){return~~(Math.random()*(e-t+1)+t)}function n(){return String.fromCharCode(function(){return arguments[e(0,arguments.length-1)]}(e(12353,12543),e(8192,8303),e(32,63)))}function o(t,e){let n=Date.now();requestAnimationFrame(function o(){Date.now()-n>=e&&(t(),n=Date.now()),requestAnimationFrame(o)})}class s{constructor(){this.element=t.createElement("span"),this.mutate()}mutate(){this.element.textContent=n()}}class i{constructor(t=[],e){this.list=t,this.options=Object.assign({size:10,offset:0},e),this.body=[],this.move()}traverse(t){this.body.forEach((e,n)=>{let o=n==this.body.length-1;e&&t(e,n,o)})}move(){this.body=[];let{offset:t,size:e}=this.options;for(let n=0;n<e;++n){let o=this.list[t+n-e+1];this.body.push(o)}this.options.offset=(t+1)%(this.list.length+e-1)}}class r{constructor({target:e,row:n}){this.element=t.createElement("p"),this.build(n),e&&e.appendChild(this.element),this.drop()}build(n=20){let r=t.createDocumentFragment(),l=[];for(let t=0;t<n;++t){let t=new s;r.appendChild(t.element),l.push(t),Math.random()<.5&&o(()=>t.mutate(),e(1e3,5e3))}this.trail=new i(l,{size:e(10,30),offset:e(0,100)}),this.element.appendChild(r)}drop(){let t=this.trail,n=t.body.length;o(()=>{t.move(),t.traverse((t,e,o)=>{t.element.style=`\n          color: hsl(136, 100%, ${85/n*(e+1)}%)\n        `,o&&(t.mutate(),t.element.style="\n            color: hsl(136, 100%, 85%);\n            text-shadow:\n              0 0 .5em #fff,\n              0 0 .5em currentColor;\n          ")})},e(10,100))}}const l=t.querySelector("main");for(let t=0;t<50;++t)new r({target:l,row:50})}(document);
+  </script>
 </body>
 </html>

@@ -5,6 +5,37 @@
   <meta name="description" content="Xiang Gao">
   <meta name="keywords" content="高翔,Xiang Gao">
   <title>XG</title>
+  <script>
+    function r(t,e){return~~(Math.random()*(e-t+1)+t)}function pick(){return arguments[r(0,arguments.length-1)]}function getChar(){return String.fromCharCode(pick(r(12353,12543),r(8192,8303),r(32,63)))}function loop(t,e){let n=Date.now();requestAnimationFrame(function o(){Date.now()-n>=e&&(t(),n=Date.now()),requestAnimationFrame(o)})}class Char{constructor(){this.element=document.createElement("span"),this.mutate()}mutate(){this.element.textContent=getChar()}}class Trail{constructor(t=[],e){this.list=t,this.options=Object.assign({size:10,offset:0},e),this.body=[],this.move()}traverse(t){this.body.forEach((e,n)=>{let o=n==this.body.length-1;e&&t(e,n,o)})}move(){this.body=[];let{offset:t,size:e}=this.options;for(let n=0;n<e;++n){let o=this.list[t+n-e+1];this.body.push(o)}this.options.offset=(t+1)%(this.list.length+e-1)}}class Rain{constructor({target:t,row:e}){this.element=document.createElement("p"),this.build(e),t&&t.appendChild(this.element),this.drop()}build(t=20){let e=document.createDocumentFragment(),n=[];for(let o=0;o<t;++o){let t=new Char;e.appendChild(t.element),n.push(t),Math.random()<.5&&loop(()=>t.mutate(),r(1e3,5e3))}this.trail=new Trail(n,{size:r(10,30),offset:r(0,100)}),this.element.appendChild(e)}drop(){let t=this.trail,e=t.body.length;loop(()=>{t.move(),t.traverse((t,n,o)=>{t.element.style=`\n          color: hsl(136, 100%, ${85/e*(n+1)}%)\n        `,o&&(t.mutate(),t.element.style="\n            color: hsl(136, 100%, 85%);\n            text-shadow:\n              0 0 .5em #fff,\n              0 0 .5em currentColor;\n          ")})},r(10,100))}}const main=document.querySelector("main");for(let t=0;t<50;++t)new Rain({target:main,row:50});
+  </script>
+  <style type="text/css">
+    html, body { 
+      height: 100%; 
+      margin: 0; 
+      overflow: hidden;
+    }
+    body { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      background: #000; 
+    }
+  main {
+    display: flex;
+  }
+  p {
+    line-height: 1;
+  }
+  span {
+    display: block;
+    width: 2vmax; 
+    height: 2vmax; 
+    font-size: 2vmax; 
+    color: #9bff9b11;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+  }
+  </style>
 </head>
 <body><h1>Hi there</h1></body>
 </html>
